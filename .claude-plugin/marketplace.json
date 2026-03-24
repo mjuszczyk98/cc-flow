@@ -7,7 +7,7 @@
     {
       "name": "cc-flow",
       "description": "Brainstorming, codebase mapping, feature planning, execution with subagents, two-tier review",
-      "source": ".",
+      "source": "./",
       "version": "0.1.0"
     }
   ]
