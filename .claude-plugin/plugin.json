@@ -7,8 +7,5 @@
   },
   "repository": "https://github.com/mjuszczyk98/cc-flow",
   "license": "MIT",
-  "keywords": ["workflow", "planning", "execution", "review", "skills"],
-  "skills": "./skills/",
-  "agents": "./agents/",
-  "hooks": "./hooks/hooks.json"
+  "keywords": ["workflow", "planning", "execution", "review", "skills"]
 }

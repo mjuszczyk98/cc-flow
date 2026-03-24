@@ -30,6 +30,7 @@ process.stdin.on('end', () => {
     // Claude Code reads hookSpecificOutput.additionalContext
     const output = JSON.stringify({
       hookSpecificOutput: {
+        hookEventName: 'SessionStart',
         additionalContext: sessionContext
       }
     });
