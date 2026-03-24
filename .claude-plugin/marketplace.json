@@ -1,0 +1,11 @@
+{
+  "name": "cc-flow-marketplace",
+  "description": "CC-Flow — lightweight development workflow framework for Claude Code",
+  "plugins": [
+    {
+      "name": "cc-flow",
+      "description": "Brainstorming, codebase mapping, feature planning, execution with subagents, two-tier review",
+      "version": "0.1.0"
+    }
+  ]
+}

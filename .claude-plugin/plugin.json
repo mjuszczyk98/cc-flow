@@ -1,0 +1,12 @@
+{
+  "name": "cc-flow",
+  "version": "0.1.0",
+  "description": "Lightweight development workflow framework — brainstorming, planning, execution, review",
+  "author": "mcjus",
+  "repository": "https://github.com/mcjus/cc-flow",
+  "license": "MIT",
+  "keywords": ["workflow", "planning", "execution", "review", "skills"],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "hooks": "./hooks/hooks.json"
+}
