@@ -1,10 +1,13 @@
 {
   "name": "cc-flow-marketplace",
-  "description": "CC-Flow — lightweight development workflow framework for Claude Code",
+  "owner": {
+    "name": "mjuszczyk98"
+  },
   "plugins": [
     {
       "name": "cc-flow",
       "description": "Brainstorming, codebase mapping, feature planning, execution with subagents, two-tier review",
+      "source": ".",
       "version": "0.1.0"
     }
   ]
