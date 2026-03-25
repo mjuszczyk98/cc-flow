@@ -97,12 +97,14 @@ One sentence — what we're building and why.
 
 #### Task 1.1: [Name]
 **Files**: create `path/to/file.ts`, modify `path/to/other.ts`
+**Commit**: _(filled during execution)_
 - [ ] Step 1: [concrete action with code context]
 - [ ] Step 2: [concrete action with code context]
 - [ ] Verify: `npm test` or manual description of expected result
 
 #### Task 1.2: [Name]
 **Files**: modify `path/to/another.ts`
+**Commit**: _(filled during execution)_
 - [ ] Step 1: [concrete action]
 - [ ] Verify: [verification]
 

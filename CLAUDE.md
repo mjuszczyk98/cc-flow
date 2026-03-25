@@ -26,6 +26,8 @@ Use the `Skill` tool to invoke these. Each skill is self-contained — invoke it
 | `cc-flow:review` | Post-execution review — checkpoint (per group) or deep (full plan) |
 | `cc-flow:update-docs` | Update documentation after changes (optional, on request) |
 | `cc-flow:worktree` | Create isolated git worktree for feature work |
+| `/ccf:next` | Show what to do next — routing based on current plan state |
+| `/ccf:status` | Compact progress overview of all plans |
 
 ## When to Use Skills
 
@@ -39,6 +41,8 @@ Use the `Skill` tool to invoke these. Each skill is self-contained — invoke it
 | "I have a plan file ready to go" | `execute` → `review` |
 | "Review what we just built" | `review` (deep) |
 | "I need to understand this codebase" | `map-codebase` |
+| "What should I work on next?" | `/ccf:next` |
+| "How far along are we?" | `/ccf:status` |
 
 ## Two Modes of Work
 

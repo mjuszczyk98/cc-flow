@@ -1,30 +1,46 @@
 # Status Line Example
 
-A custom Claude Code status line showing directory, branch, model, context usage, and rate limits.
+A custom Claude Code status line with colored context bar, rate limit indicators, and git branch display.
 
 ## Output
 
 ```
-cc-harness | main | Opus | ctx:43% | 5h:15% | 7d:9%
+cc-flow  main  Opus  ██████░░░░ 60%  5h:32%  7d:12%
 ```
+
+- Context bar changes color: green → yellow → orange → blinking red
+- Rate limits (5h/7d): no color → green → yellow → red based on usage
+- Branch shown in cyan, model dimmed
+- Vim mode shown when active
 
 ## Segments
 
 | Segment | Source | Always shown |
 |---------|--------|:---:|
-| Directory | `cwd` | Yes |
-| Branch | `worktree.branch` | When available |
+| Directory | `cwd` / `workspace.current_dir` | Yes |
+| Branch | git / `worktree.branch` | When available |
 | Model | `model.display_name` | Yes |
 | Context | `context_window.used_percentage` | When available |
-| 5h limit | `rate_limits.five_hour.used_percentage` | When available |
-| 7d limit | `rate_limits.seven_day.used_percentage` | When available |
+| 5h limit | `rate_limits.five_hour.used_percentage` | Yes (? if unavailable) |
+| 7d limit | `rate_limits.seven_day.used_percentage` | Yes (? if unavailable) |
+| Vim mode | `vim.mode` | When active |
 
 Rate limits are only available for Claude.ai Pro/Max subscribers after the first API response.
 
+## Variants
+
+Three identical implementations — pick whichever fits your system:
+
+| File | Runtime | Command |
+|------|---------|---------|
+| `statusline.mjs` | Node.js | `node ~/.claude/statusline.mjs` |
+| `statusline.py` | Python 3 | `python3 ~/.claude/statusline.py` |
+| `statusline.sh` | Shell + jq | `sh ~/.claude/statusline.sh` |
+
 ## Setup
 
-1. Copy `statusline.mjs` to `~/.claude/statusline.mjs`
-2. Add to your `~/.claude/settings.json`:
+1. Copy your preferred variant to `~/.claude/`
+2. Add to `~/.claude/settings.json`:
 
 ```json
 {
@@ -35,6 +51,10 @@ Rate limits are only available for Claude.ai Pro/Max subscribers after the first
 }
 ```
 
+Replace the command with your chosen variant.
+
 ## Requirements
 
-- Node.js (no additional dependencies)
+- **Node.js variant**: Node.js (no dependencies)
+- **Python variant**: Python 3.10+ (no dependencies)
+- **Shell variant**: POSIX shell + `jq` + `git`

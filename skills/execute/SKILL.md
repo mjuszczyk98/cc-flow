@@ -96,7 +96,26 @@ When a subagent completes:
    - Significant issue: pause execution, surface to user
    - Blocker: stop execution, surface to user
 
-### 6. Checkpoint Review
+### 6. Deviation Rules
+
+When executing a task, the implementer may encounter situations not anticipated by the plan. Apply these rules:
+
+**Auto-fix (don't ask, just do and note in the report):**
+- Broken imports or missing dependencies — fix them
+- Missing null/error checks the plan didn't anticipate — add them
+- Typos in names that don't match the plan spec — correct to match
+- Minor file path differences (file moved/renamed since plan was written) — adapt
+
+**Pause and ask the user:**
+- Task requires modifying files not listed in the plan
+- Implementation needs a fundamentally different approach than planned
+- New database tables, models, or migrations not in the plan
+- Task is significantly larger than estimated
+- External dependency or API doesn't behave as the plan assumed
+
+**Rule**: When in doubt, ask. The cost of asking is low; the cost of a wrong autonomous decision is high.
+
+### 7. Checkpoint Review
 
 After each phase (or logical task group) completes, perform a checkpoint:
 
@@ -118,19 +137,20 @@ Continue to Phase 2? (continue / adjust / stop)
 
 If running autonomously, log the checkpoint but don't pause.
 
-### 7. Auto-Commit Behavior
+### 8. Auto-Commit Behavior
 
 **Worktree active + auto-commit enabled**:
 - Commit after each successfully verified task
 - Commit message follows the project's existing convention
 - Include the task name and phase for traceability
+- After committing, write the short commit hash back into the plan file's `**Commit**:` field for the completed task
 - Never force-push, never rebase without permission
 
 **No worktree OR auto-commit disabled**:
 - Never touch git
 - The user handles all commits manually
 
-### 8. Completion
+### 9. Completion
 
 After all tasks are done:
 
